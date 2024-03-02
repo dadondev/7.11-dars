@@ -8,6 +8,7 @@ const StyledButton = styled.button`
   max-width: 200px;
   width: 100%;
   border: none;
+  color: white;
   & > span {
     flex-grow: 1;
   }
