@@ -1,36 +1,25 @@
-import React from "react";
-import Container from "../../general/components/Container";
 import styled from "styled-components";
-import Title from "../../general/components/Title";
-import Button from "../../general/components/Button";
-const StyledContainer = styled(Container)``;
-const StyledStarter = styled.div`
-  padding-top: 20px;
-  padding-inline: 32px;
-  & > img {
-    width: 100%;
+import Container from "../../general/components/Container";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Contact from "../../general/components/Contact";
+
+const StyledContainer = styled(Container)`
+  /* 111111 */
+  @media (width >=768px) {
+    padding-inline: 40px;
   }
-  width: 100%;
-`;
-const StyledText = styled.div`
-  width: 100%;
-  padding-top: 24px;
+  @media (width >=1024px) {
+    padding-inline: 0;
+  }
 `;
 
 const Home = () => {
   return (
     <StyledContainer>
-      <StyledStarter>
-        <img src="/start.png" alt="starter" />
-        <StyledText>
-          <Title>
-            Hey, I’m Alex Spencer and I love building beautiful websites
-          </Title>
-          <Button icon={"/icon-green.svg"} variant={"dark"}>
-            ABOUT ME
-          </Button>
-        </StyledText>
-      </StyledStarter>
+      <Hero />
+      <About />
+      <Contact />
     </StyledContainer>
   );
 };

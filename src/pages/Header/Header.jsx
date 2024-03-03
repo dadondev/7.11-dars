@@ -3,6 +3,7 @@ import Container from "../../general/components/Container";
 import MenuBtn from "./components/MenuBtn";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import MenuLinks from "../../general/components/MenuList";
 const StyledHeader = styled.header`
   width: 100%;
   position: relative;
@@ -16,6 +17,7 @@ const StyledContainer = styled(Container)`
   /* min-width: 100%; */
   padding-inline: 32px;
 `;
+
 const MenuList = styled.ul`
   z-index: 10;
   padding-block: 40px;
@@ -31,31 +33,12 @@ const MenuList = styled.ul`
   top: 70px;
   right: 0;
 
-  & > li {
-    font-family: "Public Sans";
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-  & > li > a {
+  & > a {
     color: #fff;
-  }
-`;
-
-const StyledMenu = styled.ul`
-  display: none;
-  align-items: center;
-  gap: 42px;
-  &:has(a) {
     font-family: "Public Sans";
     font-size: 12px;
-    color: ${(props) => props.theme.colors.grayishBlue};
     letter-spacing: 2px;
     text-transform: uppercase;
-  }
-
-  @media (width>=768px) {
-    display: flex;
   }
 `;
 
@@ -73,24 +56,14 @@ const Header = () => {
         />
         {!hidden && (
           <MenuList>
-            <li>
-              <Link>Home</Link>
-            </li>
-            <li>
-              <Link>Portfolio</Link>
-            </li>
-            <li>
-              <Link>Portfolio</Link>
-            </li>
+            <Link to={"/"}>Home</Link>
+
+            <Link to={"/portfolio"}>Portfolio</Link>
+
+            <Link to={"/contact"}>CONTACT ME</Link>
           </MenuList>
         )}
-        <StyledMenu>
-          <NavLink>Home</NavLink>
-
-          <Link>Portfolio</Link>
-
-          <Link>Portfolio</Link>
-        </StyledMenu>
+        <MenuLinks variant={"dark"} />
       </StyledHeader>
     </StyledContainer>
   );
